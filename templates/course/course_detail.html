@@ -1,0 +1,89 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    课程详情
+{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/course/course-detail.css' %}">
+{% endblock %}
+
+{% block main %}
+    <!-- main-contain start  -->
+    <main id="main">
+        <div class="w1200">
+            <div class="course-contain">
+                <div class="course-top-contain">
+                    <h4 class="course-title">{{ course.title }}</h4>
+                    <div class="course-other clearfix">
+                        <div class="share-list">
+                            <span>分享至:</span>
+                            <i class="PyWhich py-weibo"></i>
+                        </div>
+                        <div class="buy-list">
+                            <span class="price">免费</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-video" id="course-video">
+        <span class="course-data" style="display: none;" data-video-url="{{ course.video_url }}"
+              data-cover-url="{{ course.cover_url }}">
+        </span>
+                </div>
+
+                <div class="course-bottom-contain">
+                    <div class="course-detail-list">
+                        <div class="course-item clearfix">
+                            <h5 class="course-title">课程讲师</h5>
+                            <div class="teacher-box clearfix">
+                                <img src="{{ course.teacher.avatar_url }}" alt="{{ course.teacher.name }}"
+                                     title="{{ course.teacher.name }}" class="teacher-avatar">
+                                <div class="teacher-info">
+                                    <p class="teacher-name">{{ course.teacher.name }}</p>
+                                    <p class="teacher-identify">{{ course.teacher.positional_title }}</p>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                {{ course.teacher.profile }}
+                            </div>
+                        </div>
+                        <div class="course-item clearfix">
+                            <h5 class="course-title">课程简介</h5>
+                            <div class="item-content">
+                                {{ course.profile }}
+                            </div>
+                        </div>
+                        <div class="course-item clearfix">
+                            <h5 class="course-title">课程大纲</h5>
+                            <div class="item-content">
+                                <p>{{ course.outline }}</p>
+                            </div>
+                        </div>
+                        <div class="course-item clearfix">
+                            <h5 class="course-title">帮助中心</h5>
+                            <div class="item-content">
+                                <p>1. 购买后的课程在线可反复观看学习，视频有效期以具体课程信息为准。 </p>
+                                <p>2. 课程暂不支持下载观看，均为在线观看视频。 </p>
+                                <p>3. 课程一经购买，不可转让、不可退款；仅限购买账号观看。</p>
+                                <p>4. 如有问题请咨询客服: 400-1567-315 </p>
+                            </div>
+                        </div>
+                        <div class="course-item clearfix">
+                            <h5 class="course-title">关于dreamspy</h5>
+                            <div class="item-content">
+                                dreamspy致力于为人们创造一个全新的世界观，用我们自己的知识来为大家传授一些知识和利用我们的知识来为社会创造一些新的东西，将社会推向一个更美好台阶。让我们一起用pytho来创造世界，一起用python改变世界。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-side">
+                        <h4 class="side-title">推荐课程</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- main-contain  end -->
+{% endblock %}
+
+{% block script %}
+    <script src="https://cdn.bdstatic.com/jwplayer/latest/cyberplayer.js"></script>
+    <script src="{% static 'js/course/course_detail.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block link %}
+  <link rel="stylesheet" href="{% static '/css/course/course.css' %}">
+{% endblock %}
+
+{% block title %}
+ 视频主页
+{% endblock %}
+
+{% block main %}
+<main id="course-container">
+        <div class="w1200">
+            <ul class="course-list">
+                {% for course in courses %}
+                <li class="course-item">
+                    <a href="{% url 'courses:course_detail' course.id %}">
+                        <img class="course-img" src="{{ course.cover_url }}"
+                            alt="{{ course.title }}">
+                        <div class="course-content">
+                            <p class="course-info">{{ course.title }}</p>
+                            <p class="course-author">{{ course.teacher.name }}({{ course.teacher.positional_title }})</p>
+                            <p class="course-price free">免费</p>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,7 @@
+[client]
+database = first_por
+user = july
+password = july
+host = 127.0.0.1
+post = 3306
+default-character-set = utf8

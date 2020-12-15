@@ -1,0 +1,147 @@
+{% extends 'base/base.html' %}
+{% block title %}
+    dreamspy
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/news/index.css' %}">
+{% endblock %}
+
+{% block main-contain %}
+    <div class="main-contain">
+        <!-- banner start -->
+        <div class="banner">
+            <ul class="pic">
+                <!--淡入淡出banner-->
+{##}
+{##}
+{#                <li><a href="javascript:void(0);"><img src="../../static/images/ui.png" alt="test"></a></li>#}
+{##}
+{##}
+{#                <li><a href="javascript:void(0);"><img src="../../static/images/youxi.png" alt="test"></a></li>#}
+{##}
+{##}
+{#                <li><a href="javascript:void(0);"><img src="../../static/images/dianshang.png" alt="test"></a></li>#}
+{##}
+{##}
+{#                <li><a href="javascript:void(0);"><img src="../../static/images/zimeiti.png" alt="test"></a></li>#}
+{##}
+{##}
+{#                <li><a href="javascript:void(0);"><img src="../../static/images/python_gui.jpg" alt="test"></a></li>#}
+{##}
+{##}
+{#                <li><a href="javascript:void(0);"><img src="../../static/images/linux.jpg" alt="test"></a></li>#}
+
+
+            </ul>
+            <a href="javascript:void(0);" class="btn prev">
+                <i class="PyWhich py-arrow-left"></i></a>
+            <a href="javascript:void(0);" class="btn next">
+                <i class="PyWhich py-arrow-right"></i></a>
+            <ul class="tab">
+                <!-- 按钮数量必须和图片一致 -->
+            </ul>
+        </div>
+        <!-- banner end -->
+
+        <!-- content start -->
+        <div class="content">
+            <!-- recommend-news start -->
+{#            <ul class="recommend-news">#}
+{#                <li>#}
+{#                    <a href="https://www.shiguangkey.com/course/2432" target="_blank">#}
+{#                        <div class="recommend-thumbnail">#}
+{#                            <img src="../../static/images/python_gui.jpg" alt="title">#}
+{#                        </div>#}
+{#                        <p class="info">Python GUI 教程 25行代码写一个小闹钟</p>#}
+{#                    </a>#}
+{#                </li>#}
+{##}
+{#                <li>#}
+{#                    <a href="https://www.shiguangkey.com/course/2432" target="_blank">#}
+{#                        <div class="recommend-thumbnail">#}
+{#                            <img src="../../static/images/python_advanced.jpg" alt="title">#}
+{#                        </div>#}
+{#                        <p class="info">python高性能编程方法一</p>#}
+{#                    </a>#}
+{#                </li>#}
+{##}
+{#                <li>#}
+{#                    <a href="https://www.shiguangkey.com/course/2432" target="_blank">#}
+{#                        <div class="recommend-thumbnail">#}
+{#                            <img src="../../static/images/jichujiaochen.jpeg" alt="title">#}
+{#                        </div>#}
+{#                        <p class="info">python基础 split 和 join函数比较</p>#}
+{#                    </a>#}
+{#                </li>#}
+{#            </ul>#}
+            <ul class="recommend-news">
+            {% for n in hot_news %}
+                <li>
+                    <a href="{% url "news:news_detail" n.id%}" target="_blank">
+                    <div class="recommend-thumbnail">
+                        <img src="{{ n.news.image_url }}" alt="title">
+                    </div>
+                    <p class="info">{{ n.news.title }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+            <!-- recommend-news end -->
+
+            <!--  news-nav start-->
+            {#原来的写法#}
+            {#            <nav class="news-nav">#}
+            {#                <ul class="clearfix">#}
+            {#                    <li class="active"><a href="javascript:void(0)">最新资讯</a></li>#}
+            {##}
+            {#                    <li><a href="javascript:void(0)" data-id="1">python框架</a>#}
+            {#                    </li>#}
+            {##}
+            {#                    <li><a href="javascript:void(0)" data-id="2">Python基础</a>#}
+            {#                    </li>#}
+            {##}
+            {#                    <li><a href="javascript:void(0)" data-id="3">Python高级</a>#}
+            {#                    </li>#}
+            {##}
+            {#                    <li><a href="javascript:void(0)" data-id="4">Python函数</a>#}
+            {#                    </li>#}
+            {##}
+            {#                    <li><a href="javascript:void(0)" data-id="5">PythonGUI</a>#}
+            {#                    </li>#}
+            {##}
+            {#                    <li><a href="javascript:void(0)" data-id="6">Linux教程</a>#}
+            {#                    </li>#}
+            {##}
+            {#                </ul>#}
+            {#            </nav>#}
+            {#使用for来的动态写法#}
+            <nav class="news-nav">
+                <ul class="clearfix">
+                    <li class="active"><a href="javascript:void(0)" data-id="0">最新资讯</a></li>
+                    {% for news_tag in  tags %}
+                        <li><a href="javascript:void(0)" data-id="{{ news_tag.id }}">{{ news_tag.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <!--  news-nav end -->
+
+            <!-- news-contain start -->
+            <div class="news-contain">
+                <ul class="news-list">
+
+                </ul>
+            </div>
+            <!-- news-contain end -->
+
+            <!-- btn-more start -->
+            <a href="javascript:void(0);" class="btn-more">加载更多</a>
+            <!-- btn-more end -->
+        </div>
+        <!-- content end -->
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

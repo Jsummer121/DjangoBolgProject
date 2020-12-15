@@ -1,0 +1,3 @@
+QINIU_ACCESS_KEY = 'vc8yIRnfP6MU_NDzB6JjMUk2AsTap-QXjmQIJ9vY'  # ak
+QINIU_SECRET_KEY = 'RQ1awo0Wg2wJcIxv8POg35WD_OsMHHdc1ucfavGI'  # SK
+QINIU_BUCKET_NAME = 'summerfirst'		# 空间
